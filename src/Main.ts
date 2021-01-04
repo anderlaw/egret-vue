@@ -1,35 +1,4 @@
-//////////////////////////////////////////////////////////////////////////////////////
-//
-//  Copyright (c) 2014-present, Egret Technology.
-//  All rights reserved.
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are met:
-//
-//     * Redistributions of source code must retain the above copyright
-//       notice, this list of conditions and the following disclaimer.
-//     * Redistributions in binary form must reproduce the above copyright
-//       notice, this list of conditions and the following disclaimer in the
-//       documentation and/or other materials provided with the distribution.
-//     * Neither the name of the Egret nor the
-//       names of its contributors may be used to endorse or promote products
-//       derived from this software without specific prior written permission.
-//
-//  THIS SOFTWARE IS PROVIDED BY EGRET AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
-//  OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-//  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-//  IN NO EVENT SHALL EGRET AND CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-//  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA,
-//  OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-//  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-//  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-//  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//////////////////////////////////////////////////////////////////////////////////////
-
 class Main extends eui.UILayer {
-
-
     protected createChildren(): void {
         super.createChildren();
 
@@ -62,6 +31,8 @@ class Main extends eui.UILayer {
         this.createGameScene();
         const result = await RES.getResAsync("description_json")
         this.startAnimation(result);
+
+        
         await platform.login();
         const userInfo = await platform.getUserInfo();
         console.log(userInfo);
@@ -71,10 +42,16 @@ class Main extends eui.UILayer {
     private async loadResource() {
         try {
             const loadingView = new LoadingUI();
+            //添加loading组件
             this.stage.addChild(loadingView);
+            //加载配置文件
             await RES.loadConfig("resource/default.res.json", "resource/");
+            //加载皮肤
             await this.loadTheme();
+            //加载资源
             await RES.loadGroup("preload", 0, loadingView);
+
+            //加载完毕后移除loading组件
             this.stage.removeChild(loadingView);
         }
         catch (e) {
@@ -88,7 +65,7 @@ class Main extends eui.UILayer {
             //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
             let theme = new eui.Theme("resource/default.thm.json", this.stage);
             theme.addEventListener(eui.UIEvent.COMPLETE, () => {
-                resolve();
+                resolve(0);
             }, this);
 
         })
@@ -100,13 +77,16 @@ class Main extends eui.UILayer {
      * Create scene interface
      */
     protected createGameScene(): void {
+        //背景图
         let sky = this.createBitmapByName("bg_jpg");
         this.addChild(sky);
         let stageW = this.stage.stageWidth;
         let stageH = this.stage.stageHeight;
+        console.log(stageW,stageH)
         sky.width = stageW;
         sky.height = stageH;
 
+        //图形
         let topMask = new egret.Shape();
         topMask.graphics.beginFill(0x000000, 0.5);
         topMask.graphics.drawRect(0, 0, stageW, 172);
@@ -114,11 +94,13 @@ class Main extends eui.UILayer {
         topMask.y = 33;
         this.addChild(topMask);
 
+        //icon图标
         let icon: egret.Bitmap = this.createBitmapByName("egret_icon_png");
         this.addChild(icon);
         icon.x = 26;
         icon.y = 33;
 
+        //白色分割线
         let line = new egret.Shape();
         line.graphics.lineStyle(2, 0xffffff);
         line.graphics.moveTo(0, 0);
@@ -139,6 +121,7 @@ class Main extends eui.UILayer {
         colorLabel.y = 80;
         this.addChild(colorLabel);
 
+        //颜色文字
         let textfield = new egret.TextField();
         this.addChild(textfield);
         textfield.alpha = 0;
@@ -150,6 +133,7 @@ class Main extends eui.UILayer {
         textfield.y = 135;
         this.textfield = textfield;
 
+        //按钮
         let button = new eui.Button();
         button.label = "Click!";
         button.horizontalCenter = 0;
@@ -204,6 +188,8 @@ class Main extends eui.UILayer {
     private onButtonClick(e: egret.TouchEvent) {
         let panel = new eui.Panel();
         panel.title = "Title";
+
+        //表示中心偏移
         panel.horizontalCenter = 0;
         panel.verticalCenter = 0;
         this.addChild(panel);
