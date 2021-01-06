@@ -11,7 +11,10 @@
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
+		"bin-debug/PartOneChat.js",
+		"bin-debug/PartOneRect.js",
 		"bin-debug/Platform.js",
+		"bin-debug/RouteView.js",
 		"bin-debug/ThemeAdapter.js"
 	]
 }

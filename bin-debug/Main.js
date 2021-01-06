@@ -1,31 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////////////
-//
-//  Copyright (c) 2014-present, Egret Technology.
-//  All rights reserved.
-//  Redistribution and use in source and binary forms, with or without
-//  modification, are permitted provided that the following conditions are met:
-//
-//     * Redistributions of source code must retain the above copyright
-//       notice, this list of conditions and the following disclaimer.
-//     * Redistributions in binary form must reproduce the above copyright
-//       notice, this list of conditions and the following disclaimer in the
-//       documentation and/or other materials provided with the distribution.
-//     * Neither the name of the Egret nor the
-//       names of its contributors may be used to endorse or promote products
-//       derived from this software without specific prior written permission.
-//
-//  THIS SOFTWARE IS PROVIDED BY EGRET AND CONTRIBUTORS "AS IS" AND ANY EXPRESS
-//  OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-//  OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-//  IN NO EVENT SHALL EGRET AND CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-//  INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-//  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;LOSS OF USE, DATA,
-//  OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-//  LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-//  NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-//  EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-//
-//////////////////////////////////////////////////////////////////////////////////////
 var __reflect = (this && this.__reflect) || function (p, c, t) {
     p.__class__ = c, t ? t.push(c) : t = [c], p.__types__ = p.__types__ ? t.concat(p.__types__) : t;
 };
@@ -74,7 +46,30 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super.call(this) || this;
+        _this.router = new Router([
+            {
+                path: "/part-one/chat-label",
+                component: PartOneChat,
+            },
+            {
+                path: "/part-one/rect-label",
+                component: PartOneRect,
+            },
+        ]);
+        _this.router.listen(function () {
+            console.log("hash-变化了");
+            var path = location.hash.split("#")[1].split("?")[0];
+            if (path === "/part-one/chat-label") {
+                var partoneChat = new PartOneChat();
+                _this.addChild(partoneChat);
+            }
+            else if (path === "/part-one/rect-label") {
+                var partoneRect = new PartOneRect();
+                _this.addChild(partoneRect);
+            }
+        });
+        return _this;
     }
     Main.prototype.createChildren = function () {
         _super.prototype.createChildren.call(this);
@@ -129,16 +124,24 @@ var Main = (function (_super) {
                     case 0:
                         _a.trys.push([0, 4, , 5]);
                         loadingView = new LoadingUI();
+                        //添加loading组件
                         this.stage.addChild(loadingView);
+                        //加载配置文件
                         return [4 /*yield*/, RES.loadConfig("resource/default.res.json", "resource/")];
                     case 1:
+                        //加载配置文件
                         _a.sent();
+                        //加载皮肤
                         return [4 /*yield*/, this.loadTheme()];
                     case 2:
+                        //加载皮肤
                         _a.sent();
+                        //加载资源
                         return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
                     case 3:
+                        //加载资源
                         _a.sent();
+                        //加载完毕后移除loading组件
                         this.stage.removeChild(loadingView);
                         return [3 /*break*/, 5];
                     case 4:
@@ -157,7 +160,7 @@ var Main = (function (_super) {
             //加载皮肤主题配置文件,可以手动修改这个文件。替换默认皮肤。
             var theme = new eui.Theme("resource/default.thm.json", _this.stage);
             theme.addEventListener(eui.UIEvent.COMPLETE, function () {
-                resolve();
+                resolve(0);
             }, _this);
         });
     };
@@ -166,22 +169,27 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
-        var sky = this.createBitmapByName("bg_jpg");
-        this.addChild(sky);
+        //背景图
+        // let sky = this.createBitmapByName("bg_jpg");
+        // this.addChild(sky);
         var stageW = this.stage.stageWidth;
         var stageH = this.stage.stageHeight;
-        sky.width = stageW;
-        sky.height = stageH;
-        var topMask = new egret.Shape();
-        topMask.graphics.beginFill(0x000000, 0.5);
-        topMask.graphics.drawRect(0, 0, stageW, 172);
-        topMask.graphics.endFill();
-        topMask.y = 33;
-        this.addChild(topMask);
+        // console.log(stageW, stageH);
+        // sky.width = stageW;
+        // sky.height = stageH;
+        //图形
+        // let topMask = new egret.Shape();
+        // topMask.graphics.beginFill(0x000000, 0.5);
+        // topMask.graphics.drawRect(0, 0, stageW, 172);
+        // topMask.graphics.endFill();
+        // topMask.y = 33;
+        // this.addChild(topMask);
+        //icon图标
         var icon = this.createBitmapByName("egret_icon_png");
         this.addChild(icon);
         icon.x = 26;
         icon.y = 33;
+        //白色分割线
         var line = new egret.Shape();
         line.graphics.lineStyle(2, 0xffffff);
         line.graphics.moveTo(0, 0);
@@ -199,6 +207,7 @@ var Main = (function (_super) {
         colorLabel.x = 172;
         colorLabel.y = 80;
         this.addChild(colorLabel);
+        //颜色文字
         var textfield = new egret.TextField();
         this.addChild(textfield);
         textfield.alpha = 0;
@@ -209,6 +218,7 @@ var Main = (function (_super) {
         textfield.x = 172;
         textfield.y = 135;
         this.textfield = textfield;
+        //按钮
         var button = new eui.Button();
         button.label = "Click!";
         button.horizontalCenter = 0;
@@ -216,6 +226,10 @@ var Main = (function (_super) {
         this.addChild(button);
         button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
     };
+    /**
+     * name
+     */
+    Main.prototype.openPartOneChat = function () { };
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
@@ -246,9 +260,9 @@ var Main = (function (_super) {
             // Switch to described content
             textfield.textFlow = textFlow;
             var tw = egret.Tween.get(textfield);
-            tw.to({ "alpha": 1 }, 200);
+            tw.to({ alpha: 1 }, 200);
             tw.wait(2000);
-            tw.to({ "alpha": 0 }, 200);
+            tw.to({ alpha: 0 }, 200);
             tw.call(change, _this);
         };
         change();
@@ -260,6 +274,7 @@ var Main = (function (_super) {
     Main.prototype.onButtonClick = function (e) {
         var panel = new eui.Panel();
         panel.title = "Title";
+        //表示中心偏移
         panel.horizontalCenter = 0;
         panel.verticalCenter = 0;
         this.addChild(panel);
