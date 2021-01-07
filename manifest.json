@@ -8,13 +8,15 @@
 		"libs/modules/promise/promise.js"
 	],
 	"game": [
+		"bin-debug/package/components/PartOneChat.js",
+		"bin-debug/package/components/PartOneRect.js",
 		"bin-debug/AssetAdapter.js",
 		"bin-debug/LoadingUI.js",
 		"bin-debug/Main.js",
-		"bin-debug/PartOneChat.js",
-		"bin-debug/PartOneRect.js",
 		"bin-debug/Platform.js",
-		"bin-debug/RouteView.js",
-		"bin-debug/ThemeAdapter.js"
+		"bin-debug/ThemeAdapter.js",
+		"bin-debug/package/App.js",
+		"bin-debug/package/Router.js",
+		"bin-debug/package/Routes.js"
 	]
 }
