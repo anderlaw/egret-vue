@@ -1,29 +1,6 @@
 class Main extends eui.UILayer {
-  router: Router;
   constructor() {
     super();
-    this.router = new Router([
-      {
-        path: "/part-one/chat-label",
-        component: PartOneChat,
-      },
-      {
-        path: "/part-one/rect-label",
-        component: PartOneRect,
-      },
-    ]);
-    this.router.listen(() => {
-      console.log("hash-变化了");
-      const path = location.hash.split("#")[1].split("?")[0];
-        
-      if (path === "/part-one/chat-label") {
-        let partoneChat = new PartOneChat();
-        this.addChild(partoneChat);
-      } else if (path === "/part-one/rect-label") {
-        let partoneRect = new PartOneRect();
-        this.addChild(partoneRect);
-      }
-    });
   }
   protected createChildren(): void {
     super.createChildren();
@@ -54,8 +31,10 @@ class Main extends eui.UILayer {
   private async runGame() {
     await this.loadResource();
     this.createGameScene();
-    const result = await RES.getResAsync("description_json");
-    this.startAnimation(result);
+
+    // const result = await RES.getResAsync("description_json");
+    // this.startAnimation(result);
+
 
     await platform.login();
     const userInfo = await platform.getUserInfo();
@@ -102,15 +81,14 @@ class Main extends eui.UILayer {
    * Create scene interface
    */
   protected createGameScene(): void {
+    //应用启动器
+    new App(this,Routes)
     //背景图
-
     // let sky = this.createBitmapByName("bg_jpg");
     // this.addChild(sky);
-    let stageW = this.stage.stageWidth;
-    let stageH = this.stage.stageHeight;
-    // console.log(stageW, stageH);
-    // sky.width = stageW;
-    // sky.height = stageH;
+    // let stageW = this.stage.stageWidth;
+    // let stageH = this.stage.stageHeight;
+
 
     //图形
     // let topMask = new egret.Shape();
@@ -120,55 +98,27 @@ class Main extends eui.UILayer {
     // topMask.y = 33;
     // this.addChild(topMask);
 
-    //icon图标
-    let icon: egret.Bitmap = this.createBitmapByName("egret_icon_png");
-    this.addChild(icon);
-    icon.x = 26;
-    icon.y = 33;
+    //icon图标用法
+    // let icon: egret.Bitmap = this.createBitmapByName("egret_icon_png");
+    // this.addChild(icon);
+    // icon.x = 26;
+    // icon.y = 33;
 
-    //白色分割线
-    let line = new egret.Shape();
-    line.graphics.lineStyle(2, 0xffffff);
-    line.graphics.moveTo(0, 0);
-    line.graphics.lineTo(0, 117);
-    line.graphics.endFill();
-    line.x = 172;
-    line.y = 61;
-    this.addChild(line);
+ 
 
-    let colorLabel = new egret.TextField();
-    colorLabel.textColor = 0xffffff;
-    colorLabel.width = stageW - 172;
-    colorLabel.textAlign = "center";
-    colorLabel.text = "Hello Egret";
-    colorLabel.size = 24;
-    colorLabel.x = 172;
-    colorLabel.y = 80;
-    this.addChild(colorLabel);
 
-    //颜色文字
-    let textfield = new egret.TextField();
-    this.addChild(textfield);
-    textfield.alpha = 0;
-    textfield.width = stageW - 172;
-    textfield.textAlign = egret.HorizontalAlign.CENTER;
-    textfield.size = 24;
-    textfield.textColor = 0xffffff;
-    textfield.x = 172;
-    textfield.y = 135;
-    this.textfield = textfield;
 
-    //按钮
-    let button = new eui.Button();
-    button.label = "Click!";
-    button.horizontalCenter = 0;
-    button.verticalCenter = 0;
-    this.addChild(button);
-    button.addEventListener(
-      egret.TouchEvent.TOUCH_TAP,
-      this.onButtonClick,
-      this
-    );
+
+    //按钮用法
+    // let button = new eui.Button();
+    // button.label = "Click!";
+    // button.horizontalCenter = 0;
+    // button.verticalCenter = 0;
+    // button.addEventListener(
+    //   egret.TouchEvent.TOUCH_TAP,
+    //   this.onButtonClick,
+    //   this
+    // );
   }
   /**
    * name
