@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="82">
+	<e:Image source="top-bar-bg_png" left="0" right="0" top="0" bottom="0"/>
+	<e:Group height="65" anchorOffsetY="0" y="17" left="0" right="0">
+
+
+		<e:Group id="returnBtn" anchorOffsetX="0" scaleX="1" scaleY="1" x="0">
+			<e:Image anchorOffsetX="0" width="78.75" anchorOffsetY="0" scaleX="1" scaleY="1" source="return_btn_png" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:Group id="progressBarGroup" width="404" anchorOffsetX="0" height="65" x="0" y="0">
+			<e:Rect top="0" bottom="0" left="0" right="0" fillAlpha="0.3" ellipseWidth="10" ellipseHeight="10" anchorOffsetX="0" fillColor="0xffffff"/>
+			<e:Group width="370" height="50" horizontalCenter="0" verticalCenter="0">
+			<e:Group height="36" anchorOffsetY="0" left="0" right="0" top="0">
+				<e:Group id="stage1" width="36" x="0" top="0" bottom="0">
+				<e:Rect id="stage1Rect" left="0" right="0" top="0" bottom="0" fillColor="0x6959c9" ellipseHeight="10" ellipseWidth="10"/>
+				<e:Label id="stage1Label" text="1" size="18" horizontalCenter="0" verticalCenter="0" textColor="0xdedbf3"/>
+				</e:Group>
+				<e:Group id="stage2" width="60" x="36.65" top="0" bottom="0">
+				<e:Image id="stage2ArrowImg" source="progress-arrow_png" left="8" anchorOffsetX="0" width="12" anchorOffsetY="0" height="21" verticalCenter="0"/>
+				<e:Group width="36" scaleX="1" scaleY="1" right="0" top="0" bottom="0">
+					<e:Rect id="stage2Rect" left="0" right="0" top="0" bottom="0" fillColor="0x6959C9" ellipseHeight="10" ellipseWidth="10"/>
+					<e:Label id="stage2Label" text="2" size="18" textColor="0xDEDBF3" horizontalCenter="0" verticalCenter="0"/>
+				</e:Group>
+				</e:Group>
+				<e:Group id="stage3" width="60" x="95.65" top="0" bottom="0">
+				<e:Image id="stage3ArrowImg" source="progress-arrow_png" left="8" anchorOffsetX="0" width="12" anchorOffsetY="0" height="21" verticalCenter="0"/>
+				<e:Group width="36" scaleX="1" scaleY="1" right="0" top="0" bottom="0">
+					<e:Rect id="stage3Rect" left="0" right="0" top="0" bottom="0" fillColor="0x6959C9" ellipseHeight="10" ellipseWidth="10"/>
+					<e:Label id="stage3Label" text="3" size="18" textColor="0xDEDBF3" horizontalCenter="0" verticalCenter="0"/>
+				</e:Group>
+				</e:Group>
+				<e:Label id="percent_label" text="" size="20" right="0" verticalCenter="0" textColor="0xfdfdfd"/>
+			</e:Group>
+			<e:Group height="8" left="0" right="0" bottom="0">
+				<e:Rect fillColor="0xffffff" strokeColor="0x6565ce" ellipseWidth="10" ellipseHeight="10" strokeWeight="1" scaleX="1" scaleY="1" top="0" bottom="0" left="0" right="0"/>
+				<e:Rect id="percentRect" strokeColor="0x6565CE" strokeWeight="0" fillColor="0x6565ce" strokeAlpha="1" fillAlpha="1" ellipseWidth="10" ellipseHeight="10" scaleX="1" scaleY="1" top="0" bottom="0" left="0" width="0"/>
+			</e:Group>
+			</e:Group>
+		</e:Group>
+		<e:Group id="sceneReviewBtn" width="135" anchorOffsetX="0" anchorOffsetY="0" x="269">
+			<e:Image anchorOffsetX="0" anchorOffsetY="0" scaleX="1" scaleY="1" left="0" right="0" source="scene_review_png" top="0" bottom="0"/>
+			<e:Label id="sceneReviewLabel" text="场景回顾" bold="true" size="24" fontFamily="Microsoft JhengHei" horizontalCenter="0" verticalCenter="0"/>
+		</e:Group>
+		<e:layout>
+			<e:HorizontalLayout/>
+		</e:layout>
+	</e:Group>
+</e:Skin>

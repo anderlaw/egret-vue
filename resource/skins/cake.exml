@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin width="580" xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" height="800">
+	<e:Image source="cakeBg_jpg" left="0" right="0" top="0" bottom="0"/>
+	<e:Image source="cake_png" y="75" horizontalCenter="0.5"/>
+	<e:Label id="tip_label" text="" y="570" textColor="0x5d5d5c" size="26" horizontalCenter="0"/>
+	<e:Group id="btn_group" width="200" height="60" x="190" y="670" anchorOffsetY="0">
+		<e:Rect width="60" height="60" ellipseWidth="60" ellipseHeight="60" fillColor="0x645de2" left="0" verticalCenter="0"/>
+		<e:Rect width="60" height="60" ellipseWidth="60" ellipseHeight="60" fillColor="0x645DE2" right="0" verticalCenter="0"/>
+		<e:Rect fillColor="0x645de2" ellipseWidth="0" ellipseHeight="0" top="0" bottom="0" width="140" horizontalCenter="0"/>
+		<e:Label text="我知道了" horizontalCenter="0" verticalCenter="0"/>
+	</e:Group>
+
+
+</e:Skin>

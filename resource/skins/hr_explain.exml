@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<e:Skin xmlns:e="http://ns.egret.com/eui" xmlns:w="http://ns.egret.com/wing" width="580">
+	<e:Image source="HR_png" y="0" left="30"/>
+	<e:Group y="679.09" left="0" right="0" bottom="400">
+		<e:Rect left="0" right="0" top="0" bottom="0" ellipseWidth="10" ellipseHeight="10" fillColor="0xfdf1e2"/>
+		<e:Label id="content_label" text="" lineSpacing="16" textColor="0x6f6d6a" y="0" width="540" top="50" bottom="50" horizontalCenter="0"/>
+		<e:Group id="btn_group" height="50" x="348.48" y="-25" minWidth="140" right="30">
+			<e:Rect fillColor="0xf76c22" left="0" right="0" top="0" bottom="0" ellipseWidth="20" ellipseHeight="20"/>
+			<e:Label id="btn_label" text="HR" textColor="0xfcd5c1" verticalCenter="0" horizontalCenter="0"/>
+		</e:Group>
+	</e:Group>
+
+
+
+
+
+
+</e:Skin>
