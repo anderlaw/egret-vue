@@ -10,25 +10,34 @@ r.prototype = e.prototype, t.prototype = new r();
 };
 var PartOneChat = (function (_super) {
     __extends(PartOneChat, _super);
-    function PartOneChat() {
+    function PartOneChat(layer, router) {
         var _this = _super.call(this) || this;
+        _this.addEventListener(egret.Event.ADDED_TO_STAGE, function () {
+            _this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+                router.navigate("/part-one/rect-label");
+            }, _this);
+        }, _this);
         //设置一个背景图
         var image = new eui.Image();
         image.source = "bg2_png";
         _this.addChild(image);
         //设置聊天组件
         var chatGroup = new eui.Group();
+        // chatGroup.percentWidth = 100;
+        // chatGroup.percentHeight = 100;
+        chatGroup.width = 500;
+        chatGroup.height = 400;
         _this.addChild(chatGroup);
         var rect = new eui.Rect();
-        var contentLabel = new eui.Label();
         rect.fillColor = 0xffffff;
         rect.strokeWeight = 2;
         rect.ellipseWidth = 10;
         rect.ellipseHeight = 10;
         rect.strokeColor = 0x000000;
+        rect.percentWidth = 100;
+        rect.percentHeight = 100;
         chatGroup.bottom = 30;
         chatGroup.horizontalCenter = 0;
-        contentLabel.percentWidth;
         chatGroup.addChild(rect);
         //按钮
         var btnGroup = new eui.Group();
@@ -51,11 +60,20 @@ var PartOneChat = (function (_super) {
         btnGroup.addChild(bgRect);
         btnGroup.addChild(label);
         chatGroup.addChild(btnGroup);
+        //聊天内容框,egret.textField
+        var contentLabel = new egret.TextField();
+        contentLabel.width = 400;
+        contentLabel.height = 300;
+        contentLabel.wordWrap = true;
+        contentLabel.textColor = 0xff0000;
+        contentLabel.x = 50;
+        contentLabel.text = '我是一个非常。。。，，，，,,,,..。。，，，，,,,,........优。。。秀。。。的。。。男人';
+        chatGroup.addChild(contentLabel);
         _this.once(egret.Event.ADDED_TO_STAGE, function () {
             image.width = _this.stage.stageWidth;
             image.height = _this.stage.stageHeight;
-            rect.width = _this.stage.stageWidth * .8;
-            rect.height = _this.stage.stageHeight * .3;
+            // rect.width = this.stage.stageWidth*.8;
+            // rect.height = this.stage.stageHeight*.3;
         }, _this);
         return _this;
     }

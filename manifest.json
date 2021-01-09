@@ -8,15 +8,20 @@
 		"libs/modules/promise/promise.js"
 	],
 	"game": [
-		"bin-debug/package/components/PartOneChat.js",
-		"bin-debug/package/components/PartOneRect.js",
-		"bin-debug/AssetAdapter.js",
-		"bin-debug/LoadingUI.js",
+		"bin-debug/part-one/partOneHand.js",
+		"bin-debug/part-one/cake.js",
+		"bin-debug/part-one/HRExplain.js",
+		"bin-debug/part-one/labelOne.js",
+		"bin-debug/part-one/labelTwo.js",
+		"bin-debug/others/LoadingUI.js",
+		"bin-debug/others/Platform.js",
 		"bin-debug/Main.js",
-		"bin-debug/Platform.js",
-		"bin-debug/ThemeAdapter.js",
-		"bin-debug/package/App.js",
-		"bin-debug/package/Router.js",
-		"bin-debug/package/Routes.js"
+		"bin-debug/package/progressBar.js",
+		"bin-debug/package/components/PartOneChat.js",
+		"bin-debug/App.js",
+		"bin-debug/Router.js",
+		"bin-debug/Routes.js",
+		"bin-debug/others/AssetAdapter.js",
+		"bin-debug/others/ThemeAdapter.js"
 	]
 }

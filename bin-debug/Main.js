@@ -46,30 +46,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var Main = (function (_super) {
     __extends(Main, _super);
     function Main() {
-        var _this = _super.call(this) || this;
-        _this.router = new Router([
-            {
-                path: "/part-one/chat-label",
-                component: PartOneChat,
-            },
-            {
-                path: "/part-one/rect-label",
-                component: PartOneRect,
-            },
-        ]);
-        _this.router.listen(function () {
-            console.log("hash-变化了");
-            var path = location.hash.split("#")[1].split("?")[0];
-            if (path === "/part-one/chat-label") {
-                var partoneChat = new PartOneChat();
-                _this.addChild(partoneChat);
-            }
-            else if (path === "/part-one/rect-label") {
-                var partoneRect = new PartOneRect();
-                _this.addChild(partoneRect);
-            }
-        });
-        return _this;
+        return _super.call(this) || this;
     }
     Main.prototype.createChildren = function () {
         _super.prototype.createChildren.call(this);
@@ -93,22 +70,22 @@ var Main = (function (_super) {
     };
     Main.prototype.runGame = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var result, userInfo;
+            var userInfo;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0: return [4 /*yield*/, this.loadResource()];
                     case 1:
                         _a.sent();
                         this.createGameScene();
-                        return [4 /*yield*/, RES.getResAsync("description_json")];
-                    case 2:
-                        result = _a.sent();
-                        this.startAnimation(result);
+                        // const result = await RES.getResAsync("description_json");
+                        // this.startAnimation(result);
                         return [4 /*yield*/, platform.login()];
-                    case 3:
+                    case 2:
+                        // const result = await RES.getResAsync("description_json");
+                        // this.startAnimation(result);
                         _a.sent();
                         return [4 /*yield*/, platform.getUserInfo()];
-                    case 4:
+                    case 3:
                         userInfo = _a.sent();
                         console.log(userInfo);
                         return [2 /*return*/];
@@ -169,14 +146,13 @@ var Main = (function (_super) {
      * Create scene interface
      */
     Main.prototype.createGameScene = function () {
+        //应用启动器
+        new App(this, Routes);
         //背景图
         // let sky = this.createBitmapByName("bg_jpg");
         // this.addChild(sky);
-        var stageW = this.stage.stageWidth;
-        var stageH = this.stage.stageHeight;
-        // console.log(stageW, stageH);
-        // sky.width = stageW;
-        // sky.height = stageH;
+        // let stageW = this.stage.stageWidth;
+        // let stageH = this.stage.stageHeight;
         //图形
         // let topMask = new egret.Shape();
         // topMask.graphics.beginFill(0x000000, 0.5);
@@ -184,47 +160,21 @@ var Main = (function (_super) {
         // topMask.graphics.endFill();
         // topMask.y = 33;
         // this.addChild(topMask);
-        //icon图标
-        var icon = this.createBitmapByName("egret_icon_png");
-        this.addChild(icon);
-        icon.x = 26;
-        icon.y = 33;
-        //白色分割线
-        var line = new egret.Shape();
-        line.graphics.lineStyle(2, 0xffffff);
-        line.graphics.moveTo(0, 0);
-        line.graphics.lineTo(0, 117);
-        line.graphics.endFill();
-        line.x = 172;
-        line.y = 61;
-        this.addChild(line);
-        var colorLabel = new egret.TextField();
-        colorLabel.textColor = 0xffffff;
-        colorLabel.width = stageW - 172;
-        colorLabel.textAlign = "center";
-        colorLabel.text = "Hello Egret";
-        colorLabel.size = 24;
-        colorLabel.x = 172;
-        colorLabel.y = 80;
-        this.addChild(colorLabel);
-        //颜色文字
-        var textfield = new egret.TextField();
-        this.addChild(textfield);
-        textfield.alpha = 0;
-        textfield.width = stageW - 172;
-        textfield.textAlign = egret.HorizontalAlign.CENTER;
-        textfield.size = 24;
-        textfield.textColor = 0xffffff;
-        textfield.x = 172;
-        textfield.y = 135;
-        this.textfield = textfield;
-        //按钮
-        var button = new eui.Button();
-        button.label = "Click!";
-        button.horizontalCenter = 0;
-        button.verticalCenter = 0;
-        this.addChild(button);
-        button.addEventListener(egret.TouchEvent.TOUCH_TAP, this.onButtonClick, this);
+        //icon图标用法
+        // let icon: egret.Bitmap = this.createBitmapByName("egret_icon_png");
+        // this.addChild(icon);
+        // icon.x = 26;
+        // icon.y = 33;
+        //按钮用法
+        // let button = new eui.Button();
+        // button.label = "Click!";
+        // button.horizontalCenter = 0;
+        // button.verticalCenter = 0;
+        // button.addEventListener(
+        //   egret.TouchEvent.TOUCH_TAP,
+        //   this.onButtonClick,
+        //   this
+        // );
     };
     /**
      * name

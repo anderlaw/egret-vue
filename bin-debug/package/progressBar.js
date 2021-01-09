@@ -8,16 +8,16 @@ var __extends = this && this.__extends || function __extends(t, e) {
 for (var i in e) e.hasOwnProperty(i) && (t[i] = e[i]);
 r.prototype = e.prototype, t.prototype = new r();
 };
-var PartOneRect = (function (_super) {
-    __extends(PartOneRect, _super);
-    function PartOneRect() {
+var ProgressBar = (function (_super) {
+    __extends(ProgressBar, _super);
+    function ProgressBar() {
         var _this = _super.call(this) || this;
-        //设置一个背景图
-        var label = new eui.Label();
-        label.text = "这里是partonerect页面";
-        _this.addChild(label);
+        _this.skinName = "resource/skins/progress_bar.exml";
         return _this;
     }
-    return PartOneRect;
+    ProgressBar.prototype.changePercent = function (percentNum) {
+        this.percent_label.text = percentNum + '%';
+    };
+    return ProgressBar;
 }(eui.Component));
-__reflect(PartOneRect.prototype, "PartOneRect");
+__reflect(ProgressBar.prototype, "ProgressBar");
