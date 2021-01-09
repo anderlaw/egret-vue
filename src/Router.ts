@@ -1,10 +1,10 @@
 class Router {
   private routes: Array<any>;
-  private layer: eui.UILayer;
+  private app:App;
   private _cachedRouteMap: { [pathName: string]: any };
 
-  constructor(layer: eui.UILayer, routes: Array<any>) {
-    this.layer = layer;
+  constructor(app:App,routes:Array<any>) {
+    this.app = app;
     this.routes = routes;
     this.init();
   }
@@ -17,14 +17,14 @@ class Router {
 
     //遍历查到到对应的第一个组件并加载执行
     if (hashRoute.path in this._cachedRouteMap) {
-      this.layer.addChild(this._cachedRouteMap[hashRoute.path]);
+      this.app.container.addChild(this._cachedRouteMap[hashRoute.path]);
     } else {
       const currentRoute = this.routes.find(
         (route) => route.path === hashRoute.path
       );
       if (currentRoute) {
-        this.layer.addChild(
-          (this._cachedRouteMap[hashRoute.path] = new currentRoute.component(this.layer,this))
+        this.app.container.addChild(
+          (this._cachedRouteMap[hashRoute.path] = new currentRoute.component(this.app,this))
         );
       }
     }
@@ -34,28 +34,29 @@ class Router {
       console.log(hashRoute);
 
       //删除所有界面元素
-      this.layer.removeChildren();
+      this.app.container.removeChildren();
       //遍历查到到对应的第一个组件并加载执行
+      let currentComponent;
       if (hashRoute.path in this._cachedRouteMap) {
-        this.layer.addChild(this._cachedRouteMap[hashRoute.path]);
+        currentComponent = this._cachedRouteMap[hashRoute.path]
       } else {
         const currentRoute = this.routes.find(
           (route) => route.path === hashRoute.path
         );
         if (currentRoute) {
-          this.layer.addChild(
-            (this._cachedRouteMap[
-              hashRoute.path
-            ] = new currentRoute.component())
-          );
+          currentComponent = (this._cachedRouteMap[
+            hashRoute.path
+          ] = new currentRoute.component(this.app,this))
         }
       }
+      this.app.routeChanged(hashRoute)
+      currentComponent && this.app.container.addChild(currentComponent);
     });
   }
   /**
    * 获取hash route(从location上获取)
    */
-  private getHashRoute(): any {
+  private getHashRoute(): {path:string,queryParams:any} {
     const hashUrl = location.hash.split("#")[1];
     let queryParams = null;
     if (!hashUrl) {
