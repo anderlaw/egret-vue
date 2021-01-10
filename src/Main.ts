@@ -82,7 +82,13 @@ class Main extends eui.UILayer {
    */
   protected createGameScene(): void {
     //应用启动器
-    new App(this,Routes)
+    new App({
+      rootLayer:this,
+      DOMLayer:document.querySelector('body'),
+      global:{
+        version:"1.1."
+      }
+    })
     //背景图
     // let sky = this.createBitmapByName("bg_jpg");
     // this.addChild(sky);

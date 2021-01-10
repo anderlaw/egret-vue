@@ -1,9 +1,5 @@
 const Routes = [
   {
-    path: "",
-    component: PartOneLabel1,
-  },
-  {
     path: "/part-one/label1",
     component: PartOneLabel1,
   },
