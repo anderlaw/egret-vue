@@ -1,11 +1,11 @@
 const Routes = [
   {
-    path: "/part-one/label1",
-    component: PartOneLabel1,
+    path: "/part-one/label/:index/:type",
+    component: PartOneLabel,
   },
   {
-    path: "/part-one/label2",
-    component: PartOneLabel2,
+    path: "/part-one/label/:index",
+    component: PartOneLabel,
   },
   {
     path: "/part-one/hand",
