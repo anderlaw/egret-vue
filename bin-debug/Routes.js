@@ -1,16 +1,18 @@
 var Routes = [
     {
         path: "",
-        component: PartOneLabel1,
+        component: GuidePointer,
     },
     {
-        path: "/part-one/label1",
-        component: PartOneLabel1,
+        path: "/:stageNum/open-close-door",
+        component: OpenCloseDoor,
     },
+    //label
     {
-        path: "/part-one/label2",
-        component: PartOneLabel2,
+        path: "/:stageNum/label/:index",
+        component: RectLabel,
     },
+    //需求
     {
         path: "/part-one/hand",
         component: PartOneHand,

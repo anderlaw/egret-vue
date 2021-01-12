@@ -25,6 +25,16 @@ class PartOneHand extends eui.Component {
     
     this.bottom = -935;
     this.horizontalCenter = 0;
-    egret.Tween.get(this).to({ bottom: 0 }, 1000, egret.Ease.quartOut);
+    egret.Tween.get(this).to({ bottom: 0 }, 1000, egret.Ease.quartOut).call(()=>{
+      //注册一次点击
+      this.stage.once(egret.TouchEvent.TOUCH_TAP,()=>{
+
+        egret.Tween.get(this).to({ bottom: -700, alpha: 0 }, 800, egret.Ease.sineIn).call(()=>{
+          //进入下一页
+          this.router.navigate('/part-one/label/two')
+        })
+      
+      },this)
+    });
   }
 }

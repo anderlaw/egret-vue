@@ -26,6 +26,15 @@ class Main extends eui.UILayer {
     this.runGame().catch((e) => {
       console.log(e);
     });
+
+    if (egret.Capabilities.isMobile == true) {
+      this.stage.orientation =
+        egret.OrientationMode.PORTRAIT;
+      // egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
+    } else {
+      this.stage.orientation = egret.OrientationMode.AUTO;
+      this.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
+    }
   }
 
   private async runGame() {
@@ -48,10 +57,12 @@ class Main extends eui.UILayer {
       this.stage.addChild(loadingView);
       //加载配置文件
       await RES.loadConfig("resource/default.res.json", "resource/");
+      await RES.loadConfig("resource/resource_core.res.json", "resource/");
       //加载皮肤
-      await this.loadTheme();
+      await this.loadTheme()
       //加载资源
-      await RES.loadGroup("preload", 0, loadingView);
+      await RES.loadGroup("preload", 0);
+      await RES.loadGroup("preload-core", 1);
 
       //加载完毕后移除loading组件
       this.stage.removeChild(loadingView);
@@ -89,13 +100,6 @@ class Main extends eui.UILayer {
         version:"1.1."
       }
     })
-    //背景图
-    // let sky = this.createBitmapByName("bg_jpg");
-    // this.addChild(sky);
-    // let stageW = this.stage.stageWidth;
-    // let stageH = this.stage.stageHeight;
-
-
     //图形
     // let topMask = new egret.Shape();
     // topMask.graphics.beginFill(0x000000, 0.5);

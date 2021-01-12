@@ -67,6 +67,15 @@ var Main = (function (_super) {
         this.runGame().catch(function (e) {
             console.log(e);
         });
+        if (egret.Capabilities.isMobile == true) {
+            this.stage.orientation =
+                egret.OrientationMode.PORTRAIT;
+            // egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
+        }
+        else {
+            this.stage.orientation = egret.OrientationMode.AUTO;
+            this.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
+        }
     };
     Main.prototype.runGame = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -99,7 +108,7 @@ var Main = (function (_super) {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 4, , 5]);
+                        _a.trys.push([0, 6, , 7]);
                         loadingView = new LoadingUI();
                         //添加loading组件
                         this.stage.addChild(loadingView);
@@ -108,24 +117,32 @@ var Main = (function (_super) {
                     case 1:
                         //加载配置文件
                         _a.sent();
-                        //加载皮肤
-                        return [4 /*yield*/, this.loadTheme()];
+                        return [4 /*yield*/, RES.loadConfig("resource/resource_core.res.json", "resource/")];
                     case 2:
+                        _a.sent();
+                        //加载皮肤
+                        return [4 /*yield*/, this.loadTheme()
+                            //加载资源
+                        ];
+                    case 3:
                         //加载皮肤
                         _a.sent();
                         //加载资源
-                        return [4 /*yield*/, RES.loadGroup("preload", 0, loadingView)];
-                    case 3:
+                        return [4 /*yield*/, RES.loadGroup("preload", 0)];
+                    case 4:
                         //加载资源
+                        _a.sent();
+                        return [4 /*yield*/, RES.loadGroup("preload-core", 1)];
+                    case 5:
                         _a.sent();
                         //加载完毕后移除loading组件
                         this.stage.removeChild(loadingView);
-                        return [3 /*break*/, 5];
-                    case 4:
+                        return [3 /*break*/, 7];
+                    case 6:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 5];
-                    case 5: return [2 /*return*/];
+                        return [3 /*break*/, 7];
+                    case 7: return [2 /*return*/];
                 }
             });
         });
@@ -147,12 +164,13 @@ var Main = (function (_super) {
      */
     Main.prototype.createGameScene = function () {
         //应用启动器
-        new App(this, Routes);
-        //背景图
-        // let sky = this.createBitmapByName("bg_jpg");
-        // this.addChild(sky);
-        // let stageW = this.stage.stageWidth;
-        // let stageH = this.stage.stageHeight;
+        new App({
+            rootLayer: this,
+            DOMLayer: document.querySelector('body'),
+            global: {
+                version: "1.1."
+            }
+        });
         //图形
         // let topMask = new egret.Shape();
         // topMask.graphics.beginFill(0x000000, 0.5);

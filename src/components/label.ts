@@ -1,4 +1,4 @@
-class PartOneLabel1 extends eui.Component {
+class RectLabel extends eui.Component {
   app: App;
   router: Router;
   public content_label: eui.Label;
@@ -11,7 +11,18 @@ class PartOneLabel1 extends eui.Component {
   }
   public initUI() {
     this.app.changeBgImage("bg1_png");
-    this.content_label.text = "你是一家数据服务公司的销售负责人，今年你们部门有一个【资深销售经理】的岗位急需招人。";
+    const currentRoute = this.router.currentRoute;
+    if(currentRoute.pathParams.stageNum === 'part-one'){
+      switch (currentRoute.pathParams.index){
+        case 'one':
+          this.content_label.text = "你是一家数据服务公司的销售负责人，今年你们部门有一个【资深销售经理】的岗位急需招人。";
+          break;
+          case 'two':
+            this.content_label.text = "今天，HR的同事来了解情况，请跟她一起确认这个岗位的人才画像吧！";
+            break;
+      }
+    }
+    
     //居中
     this.horizontalCenter = 0;
     this.verticalCenter = 0;

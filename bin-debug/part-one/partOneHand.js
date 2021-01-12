@@ -22,13 +22,22 @@ var PartOneHand = (function (_super) {
         return _this;
     }
     PartOneHand.prototype.initUI = function () {
+        var _this = this;
         this.app.changeBgImage("bg1_png");
         var image = new eui.Image();
         image.source = "xuqiu_png";
         this.addChild(image);
         this.bottom = -935;
         this.horizontalCenter = 0;
-        egret.Tween.get(this).to({ bottom: 0 }, 1000, egret.Ease.quartOut);
+        egret.Tween.get(this).to({ bottom: 0 }, 1000, egret.Ease.quartOut).call(function () {
+            //注册一次点击
+            _this.stage.once(egret.TouchEvent.TOUCH_TAP, function () {
+                egret.Tween.get(_this).to({ bottom: -700, alpha: 0 }, 800, egret.Ease.sineIn).call(function () {
+                    //进入下一页
+                    _this.router.navigate('/part-one/label/two');
+                });
+            }, _this);
+        });
     };
     return PartOneHand;
 }(eui.Component));

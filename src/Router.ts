@@ -3,7 +3,6 @@ class Router extends DDI.Router{
         console.log(path);
         next()
     }
-    routerWillInit(){
-        this.navigate('/part-one/label1')
+    routerInited(){
     }
 }
