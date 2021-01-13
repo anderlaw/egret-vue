@@ -3,6 +3,8 @@ class Router extends DDI.Router{
         console.log(path);
         next()
     }
-    routerInited(){
+    routeWillInited(path,next){
+        console.log('页面初始化',path)
+        next("/part-one/label/one")
     }
 }
