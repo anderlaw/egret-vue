@@ -56,12 +56,17 @@ namespace DDI {
         regExpStr = "^" + regExpStr + "$";
         this.routeRegExp[routeName] = new RegExp(regExpStr);
       });
-      //显示当前path对应的界面
-      this.pageInit();
-      //路由初始化完毕！
-      this.routerInited();
+      //初次渲染页面（默认渲染url中path对应的界面）
+      this.pageFirstRender();
     }
     private renderRoute(path: string) {
+      //记录index.html 紧接的hash的非path部分（hash,后面的#作为片段符、？作为查询符全部保持）
+      const findOldPathAndPostFix = location.href.match(/index\.html#([^\?\#]*)(.*)$/)
+      // const oldPath = findOldPathAndPostFix[1];
+      const postFix = findOldPathAndPostFix[2];
+      location.hash = path+postFix
+
+
       const parseRes = this.parseRoute(path);
       if (parseRes.route === null) {
         //没有匹配的
@@ -70,7 +75,6 @@ namespace DDI {
 
       this.currentRoute = parseRes;
       const hashRoute = parseRes.route;
-      console.log(hashRoute);
       //删除所有界面元素
       this.pageLayer.removeChildren();
       //遍历查到到对应的第一个组件并加载执行
@@ -88,8 +92,7 @@ namespace DDI {
       }
       currentComponent && this.pageLayer.addChild(currentComponent);
     }
-    //路由
-    protected routerInited() {}
+
     private parseRoute(
       pathUrl: string
     ): {
@@ -130,11 +133,11 @@ namespace DDI {
     }
     /**
      *
-     * @param 页面初始化
+     * @param 页面初始渲染
      */
-    private pageInit() {
+    private pageFirstRender() {
       /**
-       * 需要支持外链额外的#符，以pathname作为路由的起点。为pathname后补#号
+       * 补全index.html后的#
        */
       if (location.href.indexOf(location.pathname + "#") === -1) {
         location.href = location.href.replace(
@@ -143,21 +146,26 @@ namespace DDI {
         );
       }
       const path = location.href.match(/index\.html#([^#\?]*)/)[1];
-      this.navigate(path);
+      this.routeWillInited(path,(replacedPath?:string)=>{
+        //默认是location上的path，可以传入新path替代
+        this.renderRoute(replacedPath || path)
+      })
     }
     /**
      * 导航到路由对应的页面
      */
     public navigate(path: string) {
       this.routeWillChange(path, () => {
-        //记录index.html 紧接的hash的非path部分（hash,后面的#作为片段符、？作为查询符全部保持）
-        const findOldPathAndPostFix = location.href.match(/index\.html#([^\?\#]*)(.*)$/)
-        // const oldPath = findOldPathAndPostFix[1];
-        const postFix = findOldPathAndPostFix[2];
-        location.hash = path+postFix
         this.renderRoute(path);
       });
     }
+    //每次route间跳转回调
     protected routeWillChange(path: string, next: () => void) {}
+    /**
+     * 路由初次渲染
+     */
+    protected routeWillInited(path:string,next:(replacedPath?:string)=>void){
+
+    }
   }
 }
