@@ -15,7 +15,7 @@ namespace DDI {
             this.DOMLayer = params.DOMLayer;
             this.global = params.global;
             //1
-            this.componentWillMount();
+            this.UIWillInit();
             //2
             this.routerWillInit();
         }
@@ -29,8 +29,18 @@ namespace DDI {
         /**
          * UI初始化入口
          */
-        componentWillMount(){
+        UIWillInit(){
     
+        }
+        /**
+         * 路由变化的钩子
+         */
+        public routeWillChange(path: string, next: () => void) {}
+        /**
+         * 页面首次加载时渲染路由
+         */
+        public routeWillRender(path:string,next:(replacedPath?:string)=>void){
+
         }
     }
 }

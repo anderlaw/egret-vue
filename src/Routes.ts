@@ -1,10 +1,11 @@
 const Routes = [
+  //第一阶段
   {
     path: "",
     component: GuidePointer,
   },
   {
-    path:"/long-tap",
+    path:"/:stageNum/long-tap",
     component:LongTap
   },
   {
@@ -28,5 +29,13 @@ const Routes = [
   {
     path: "/part-one/hr-explain",
     component: PartOneHrExplain,
+  },{
+    path:"/:stageNum/flower",
+    component:Flower
   },
+  //第二阶段
+  {
+    path:"/part-two/resume",
+    component:Resume
+  }
 ];

@@ -146,7 +146,7 @@ namespace DDI {
         );
       }
       const path = location.href.match(/index\.html#([^#\?]*)/)[1];
-      this.routeWillInit(path,(replacedPath?:string)=>{
+      this.app.routeWillRender && this.app.routeWillRender(path,(replacedPath?:string)=>{
         //默认是location上的path，可以传入新path替代
         this.renderRoute(replacedPath || path)
       })
@@ -155,17 +155,9 @@ namespace DDI {
      * 导航到路由对应的页面
      */
     public navigate(path: string) {
-      this.routeWillChange(path, () => {
+      this.app.routeWillChange && this.app.routeWillChange(path, () => {
         this.renderRoute(path);
-      });
-    }
-    //每次route间跳转回调
-    protected routeWillChange(path: string, next: () => void) {}
-    /**
-     * 路由初次渲染
-     */
-    protected routeWillInit(path:string,next:(replacedPath?:string)=>void){
-
+      })
     }
   }
 }
