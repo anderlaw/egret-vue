@@ -146,7 +146,7 @@ namespace DDI {
         );
       }
       const path = location.href.match(/index\.html#([^#\?]*)/)[1];
-      this.routeWillInited(path,(replacedPath?:string)=>{
+      this.routeWillInit(path,(replacedPath?:string)=>{
         //默认是location上的path，可以传入新path替代
         this.renderRoute(replacedPath || path)
       })
