@@ -1,15 +1,11 @@
-class RectLabel extends eui.Component {
+class RectLabel extends DDI.PageComponent {
   app: App;
   router: Router;
   public content_label: eui.Label;
-  constructor(app: App, router: Router) {
-    super();
+  public UIWillInit(){
     this.skinName = "resource/skins/label_pangbai.exml";
-    this.router = router;
-    this.app = app;
-    this.initUI();
   }
-  public initUI() {
+  public mounted(){
     this.app.changeBgImage("bg1_png");
     const currentRoute = this.router.currentRoute;
     if(currentRoute.pathParams.stageNum === 'part-one'){
@@ -17,9 +13,9 @@ class RectLabel extends eui.Component {
         case 'one':
           this.content_label.text = "你是一家数据服务公司的销售负责人，今年你们部门有一个【资深销售经理】的岗位急需招人。";
           break;
-          case 'two':
-            this.content_label.text = "今天，HR的同事来了解情况，请跟她一起确认这个岗位的人才画像吧！";
-            break;
+        case 'two':
+          this.content_label.text = "今天，HR的同事来了解情况，请跟她一起确认这个岗位的人才画像吧！";
+          break;
       }
     }
     
@@ -37,7 +33,7 @@ class RectLabel extends eui.Component {
           egret.TouchEvent.TOUCH_TAP,
           () => {
             //点击进入下一步
-            this.router.navigate("/part-one/hand");
+            this.router.navigate("/part-one/label/two");
           },
           this
         );
