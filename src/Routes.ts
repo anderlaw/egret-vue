@@ -4,6 +4,10 @@ const Routes = [
     component: GuidePointer,
   },
   {
+    path:"/long-tap",
+    component:LongTap
+  },
+  {
     path: "/:stageNum/open-close-door",
     component: OpenCloseDoor,
   },

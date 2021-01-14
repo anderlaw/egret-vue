@@ -164,7 +164,7 @@ namespace DDI {
     /**
      * 路由初次渲染
      */
-    protected routeWillInited(path:string,next:(replacedPath?:string)=>void){
+    protected routeWillInit(path:string,next:(replacedPath?:string)=>void){
 
     }
   }
