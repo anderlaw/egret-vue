@@ -16,6 +16,12 @@
 	},
 	"autoGenerateExmlsList": true,
 	"exmls": [
+		"resource/skins/BaseEnvelope.exml",
+		"resource/skins/cake.exml",
+		"resource/skins/GuidePointer.exml",
+		"resource/skins/hr_explain.exml",
+		"resource/skins/label_pangbai.exml",
+		"resource/skins/progress_bar.exml",
 		"resource/eui_skins/ButtonSkin.exml",
 		"resource/eui_skins/CheckBoxSkin.exml",
 		"resource/eui_skins/HScrollBarSkin.exml",
@@ -28,13 +34,7 @@
 		"resource/eui_skins/TextInputSkin.exml",
 		"resource/eui_skins/ToggleSwitchSkin.exml",
 		"resource/eui_skins/VScrollBarSkin.exml",
-		"resource/eui_skins/VSliderSkin.exml",
-		"resource/skins/BaseEnvelope.exml",
-		"resource/skins/cake.exml",
-		"resource/skins/GuidePointer.exml",
-		"resource/skins/hr_explain.exml",
-		"resource/skins/label_pangbai.exml",
-		"resource/skins/progress_bar.exml"
+		"resource/eui_skins/VSliderSkin.exml"
 	],
 	"path": "resource/default.thm.json"
 }

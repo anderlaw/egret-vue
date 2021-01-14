@@ -1,3 +1,5 @@
+declare class BaseEnvelopeSkin extends eui.Skin{
+}
 declare module skins{
 	class ButtonSkin extends eui.Skin{
 	}
@@ -49,6 +51,4 @@ declare module skins{
 declare module skins{
 	class VSliderSkin extends eui.Skin{
 	}
-}
-declare class BaseEnvelopeSkin extends eui.Skin{
 }
