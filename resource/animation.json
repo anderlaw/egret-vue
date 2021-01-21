@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "keys": "flowerOneBottom_json,flowerOneBottom_png",
+      "name": "stage-one-animation"
+    },
+    {
+      "keys": "resume0_png,resume0_json,resume1_png,resume1_json,resume3_png,resume3_json",
+      "name": "stage-two-animation"
+    }
+  ],
+  "resources": [
+    {
+      "url": "assets/animation/flower/one/flowerOneBottom.json",
+      "type": "json",
+      "name": "flowerOneBottom_json"
+    },
+    {
+      "url": "assets/animation/flower/one/flowerOneBottom.png",
+      "type": "image",
+      "name": "flowerOneBottom_png"
+    },
+
+    {
+      "url": "assets/animation/resume/resume0.png",
+      "type": "image",
+      "name": "resume0_png"
+    },
+    {
+      "url": "assets/animation/resume/resume0.json",
+      "type": "json",
+      "name": "resume0_json"
+    },
+    {
+      "url": "assets/animation/resume/resume1.png",
+      "type": "image",
+      "name": "resume1_png"
+    },
+    {
+      "url": "assets/animation/resume/resume1.json",
+      "type": "json",
+      "name": "resume1_json"
+    },
+    {
+      "url": "assets/animation/resume/resume3.png",
+      "type": "image",
+      "name": "resume3_png"
+    },
+    {
+      "url": "assets/animation/resume/resume3.json",
+      "type": "json",
+      "name": "resume3_json"
+    }
+
+  ]
+}

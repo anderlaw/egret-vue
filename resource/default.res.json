@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg1_png,egret_icon_png,description_json,xuqiu2_png,cake_png,cakeBg_jpg,HR_png,top-bar-bg_png,scene_review_png,return_btn_png,progress-arrow_png,progress-arrow_active_png,continue_btn_png,click_screen_png,global_json,topSection_png,bottomSection_png",
+			"keys": "checkbox_select_disabled_png,checkbox_select_down_png,checkbox_select_up_png,checkbox_unselect_png,selected_png,border_png,header_png,radiobutton_select_disabled_png,radiobutton_select_down_png,radiobutton_select_up_png,radiobutton_unselect_png,roundthumb_png,thumb_png,track_png,tracklight_png,handle_png,off_png,on_png,button_down_png,button_up_png,thumb_pb_png,track_pb_png,track_sb_png,bg1_png,bg2_png,egret_icon_png,description_json,xuqiu2_png,cake_png,cakeBg_jpg,HR_png,top-bar-bg_png,scene_review_png,return_btn_png,progress-arrow_png,progress-arrow_active_png,continue_btn_png,click_screen_png,global_json,topSection_png,bottomSection_png,button_png",
 			"name": "preload"
 		}
 	],
@@ -127,6 +127,11 @@
 			"name": "bg1_png"
 		},
 		{
+			"url": "assets/bg2.png",
+			"type": "image",
+			"name": "bg2_png"
+		},
+		{
 			"url": "assets/xuqiu.png",
 			"type": "image",
 			"name": "xuqiu_png"
@@ -214,6 +219,10 @@
 			"name": "bottomSection_png",
 			"type": "image",
 			"url": "assets/bg/bottomSection.png"
+		},{
+			"name": "button_png",
+			"type": "image",
+			"url": "assets/button.png"
 		}
 	]
 }

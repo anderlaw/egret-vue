@@ -6,6 +6,10 @@
 				"relativePath": "resource/"
 			},
 			{
+				"configPath": "resource/animation.json",
+				"relativePath": "resource/"
+			},
+			{
 				"configPath": "resource/resource_core.res.json",
 				"relativePath": "resource/"
 			}

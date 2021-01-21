@@ -18,10 +18,12 @@
 	"exmls": [
 		"resource/skins/BaseEnvelope.exml",
 		"resource/skins/cake.exml",
+		"resource/skins/EndFlowerSkin.exml",
 		"resource/skins/GuidePointer.exml",
 		"resource/skins/hr_explain.exml",
 		"resource/skins/label_pangbai.exml",
 		"resource/skins/progress_bar.exml",
+		"resource/skins/Resume.exml",
 		"resource/eui_skins/ButtonSkin.exml",
 		"resource/eui_skins/CheckBoxSkin.exml",
 		"resource/eui_skins/HScrollBarSkin.exml",
