@@ -26,14 +26,12 @@ class Main extends eui.UILayer {
     this.runGame().catch((e) => {
       console.log(e);
     });
-
     if (egret.Capabilities.isMobile == true) {
-      this.stage.orientation =
-        egret.OrientationMode.PORTRAIT;
-      // egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
+      egret.MainContext.instance.stage.scaleMode = egret.StageScaleMode.FIXED_WIDTH;
     } else {
-      this.stage.orientation = egret.OrientationMode.AUTO;
-      this.stage.scaleMode = egret.StageScaleMode.EXACT_FIT;
+      egret.MainContext.instance.stage.orientation = egret.OrientationMode.AUTO;
+      egret.MainContext.instance.stage.scaleMode =
+        egret.StageScaleMode.FIXED_WIDTH;
     }
   }
 
@@ -58,6 +56,7 @@ class Main extends eui.UILayer {
       //加载配置文件
       await RES.loadConfig("resource/default.res.json", "resource/");
       await RES.loadConfig("resource/resource_core.res.json", "resource/");
+      await RES.loadConfig("resource/animation.json", "resource/");
       //加载皮肤
       await this.loadTheme()
       //加载资源
@@ -93,47 +92,11 @@ class Main extends eui.UILayer {
    */
   protected createGameScene(): void {
     //应用启动器
-    new App({
-      rootLayer:this,
-      DOMLayer:document.querySelector('body'),
-      global:{
-        version:"1.1."
-      }
+    new TS({
+      el:this,
+      routes:Routes
     })
-    //图形
-    // let topMask = new egret.Shape();
-    // topMask.graphics.beginFill(0x000000, 0.5);
-    // topMask.graphics.drawRect(0, 0, stageW, 172);
-    // topMask.graphics.endFill();
-    // topMask.y = 33;
-    // this.addChild(topMask);
-
-    //icon图标用法
-    // let icon: egret.Bitmap = this.createBitmapByName("egret_icon_png");
-    // this.addChild(icon);
-    // icon.x = 26;
-    // icon.y = 33;
-
- 
-
-
-
-
-    //按钮用法
-    // let button = new eui.Button();
-    // button.label = "Click!";
-    // button.horizontalCenter = 0;
-    // button.verticalCenter = 0;
-    // button.addEventListener(
-    //   egret.TouchEvent.TOUCH_TAP,
-    //   this.onButtonClick,
-    //   this
-    // );
   }
-  /**
-   * name
-   */
-  public openPartOneChat() {}
   /**
    * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
    * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
