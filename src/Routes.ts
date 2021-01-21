@@ -1,16 +1,21 @@
 const Routes = [
+  //第一阶段
   {
     path: "",
-    component: PartOneLabel1,
+    component: GuidePointer,
+  },{
+    path:"/part-one/label/:index",
+    component:RectLabel
   },
   {
-    path: "/part-one/label1",
-    component: PartOneLabel1,
+    path:"/:stageNum/flower",
+    component:Flower
   },
   {
-    path: "/part-one/label2",
-    component: PartOneLabel2,
+    path: "/:stageNum/open-close-door",
+    component: OpenCloseDoor,
   },
+  //需求
   {
     path: "/part-one/hand",
     component: PartOneHand,
@@ -22,5 +27,24 @@ const Routes = [
   {
     path: "/part-one/hr-explain",
     component: PartOneHrExplain,
+  },{
+    path:"/:stageNum/flower",
+    component:Flower
   },
+  //第二阶段
+  {
+    path:"/part-two/resume",
+    component:Resume
+  },
+  //决策树
+  {
+    path:"/:stageNum/long-tap/:questionId",
+    component:LongTap
+  },{
+    path:"/:stageNum/repeat/:questionId/:optionId",
+    component:Repeat
+  },{
+    path:"/:stageNum/npc/:questionId/:optionId",
+    component:Npc
+  }
 ];

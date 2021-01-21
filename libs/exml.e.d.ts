@@ -1,3 +1,9 @@
+declare class BaseEnvelopeSkin extends eui.Skin{
+}
+declare class EndFlower extends eui.Skin{
+}
+declare class CrossSkin extends eui.Skin{
+}
 declare module skins{
 	class ButtonSkin extends eui.Skin{
 	}

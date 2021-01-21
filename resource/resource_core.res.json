@@ -1,0 +1,135 @@
+{
+	"groups": [
+		{
+			"keys": "cross1_json,cross1_png,cross2_json,cross2_png,eggshell1_1_json,eggshell1_1_png,eggshell1_2_json,eggshell1_2_png,eggshell2_1_json,eggshell2_1_png,eggshell2_2_json,eggshell2_2_png,bloom_json,bloom_png,break_json,break_png,open_envelop_json,open_envelop_png",
+			"name": "preload-core"
+		}
+	],
+	"resources": [
+		{
+			"url": "assets/top-bar-bg.png",
+			"type": "image",
+			"name": "top-bar-bg_png"
+		},
+		{
+			"url": "assets/animation/cross/cross1.json",
+			"type": "json",
+			"name": "cross1_json"
+		},
+		{
+			"url": "assets/animation/cross/cross1.png",
+			"type": "image",
+			"name": "cross1_png"
+		},
+		{
+			"url": "assets/animation/cross/cross2.json",
+			"type": "json",
+			"name": "cross2_json"
+		},
+		{
+			"url": "assets/animation/cross/cross2.png",
+			"type": "image",
+			"name": "cross2_png"
+		},
+		{
+			"url": "assets/bg/leftWhiteT.png",
+			"type": "image",
+			"name": "leftWhiteT_png"
+		},
+		{
+			"url": "assets/animation/eggshell/1/eggshell1_1.json",
+			"type": "json",
+			"name": "eggshell1_1_json"
+		},
+		{
+			"url": "assets/animation/eggshell/1/eggshell1_1.png",
+			"type": "image",
+			"name": "eggshell1_1_png"
+		},
+		{
+			"url": "assets/animation/eggshell/1/eggshell1_2.json",
+			"type": "json",
+			"name": "eggshell1_2_json"
+		},
+		{
+			"url": "assets/animation/eggshell/1/eggshell1_2.png",
+			"type": "image",
+			"name": "eggshell1_2_png"
+		},
+		{
+			"url": "assets/animation/eggshell/2/eggshell2_1.json",
+			"type": "json",
+			"name": "eggshell2_1_json"
+		},
+		{
+			"url": "assets/animation/eggshell/2/eggshell2_1.png",
+			"type": "image",
+			"name": "eggshell2_1_png"
+		},
+		{
+			"url": "assets/animation/eggshell/2/eggshell2_2.json",
+			"type": "json",
+			"name": "eggshell2_2_json"
+		},
+		{
+			"url": "assets/animation/eggshell/2/eggshell2_2.png",
+			"type": "image",
+			"name": "eggshell2_2_png"
+		},
+		{
+			"url": "assets/bg/person/面试者生气-min.png",
+			"type": "image",
+			"name": "面试者生气-min_png"
+		},
+		{
+			"url": "assets/return_btn.png",
+			"type": "image",
+			"name": "return_btn_png"
+		},
+		{
+			"url": "assets/query.png",
+			"type": "image",
+			"name": "query_png"
+		},
+		{
+			"url": "assets/animation/bloom/bloom.json",
+			"type": "json",
+			"name": "bloom_json"
+		},
+		{
+			"url": "assets/animation/bloom/bloom.png",
+			"type": "image",
+			"name": "bloom_png"
+		},
+		{
+			"url": "assets/animation/break/break.json",
+			"type": "json",
+			"name": "break_json"
+		},
+		{
+			"url": "assets/animation/break/break.png",
+			"type": "image",
+			"name": "break_png"
+		},
+		{
+			"url": "assets/bg/cai1.png",
+			"type": "image",
+			"name": "cai1_png"
+		},
+		{
+			"url": "assets/bg/cai2.png",
+			"type": "image",
+			"name": "cai2_png"
+		},
+		{
+			"url": "assets/animation/envelop/envelop.png",
+			"type": "image",
+			"name": "open_envelop_png"
+		},
+		{
+			"url": "assets/animation/envelop/envelop.json",
+			"type": "json",
+			"name": "open_envelop_json"
+		}
+	]
+}
