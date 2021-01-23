@@ -1,4 +1,4 @@
-class RectLabel extends DDI.PageComponent implements DDI.PageRequirements {
+class RectLabelCopy extends DDI.PageComponent implements DDI.PageRequirements {
   public $app;
   public $router;
   public content_label: eui.Label;
