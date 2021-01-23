@@ -14,8 +14,12 @@ namespace DDI {
         beforefirstScreenRender:(path:string,next:(replacedPath?:string)=>void)=>void,
         /**
          * 路由变化前
+         * @from 当前路由
+         * @to 目标路由
+         * @next 执行函数
+         * @payload 导航荷载
          */
-        beforeEach:(path:string,payload:any,next: (payload?:any) => void)=>void,
+        beforeEach:(from:string,to:string,next: () => void,payload?:any)=>void,
         /**
          * 路由变化后
          */

@@ -50,15 +50,12 @@ namespace DDI {
               return;
             }
             if (pathFragment[0] === ":") {
-              if(!/^[\\w\\-]+$/.test(pathFragment.slice(1))){
+              if(!/^[\w\-]+$/.test(pathFragment.slice(1))){
                 throw("路径片段只能为数字、字母、连接符")
               }
               regExpStr += "/([\\w\\-]+)";
             } else {
-              if(!/^\//.test(pathFragment)){
-                throw("路径片段应该以/开头")
-              }
-              //路径
+              //没有参数
               regExpStr += "/" + pathFragment;
             }
           });
@@ -79,13 +76,13 @@ namespace DDI {
       //modify hash string
       location.hash = path + postFix;
 
-      const parseResult = this.parseRoute(path);
+      const parseResult = this.activeRoute = this.parseRoute(path);
       if (parseResult.originPath === null) {
         //没有匹配的
         return;
       }
 
-      this.activeRoute = parseResult;
+ 
       //删除所有界面元素
       this.$el.removeChildren();
       //遍历查到到对应的第一个组件并加载执行
@@ -178,13 +175,13 @@ namespace DDI {
     /**
      * 导航到路由对应的页面,可以携带载荷，供路由变化钩子捕获
      */
-    public navigate(path: string, payload?: any) {
+    public navigate(toPath: string, payload?: any) {
       (this.$app as any).beforeEach &&
-      (this.$app as any).beforeEach(path,payload,() => {
-          this.renderRoute(path, () => {
-            (this.$app as any).afterEach && (this.$app as any).afterEach(path);
+      (this.$app as any).beforeEach(this.activeRoute.path,toPath,() => {
+          this.renderRoute(toPath, () => {
+            (this.$app as any).afterEach && (this.$app as any).afterEach(toPath);
           });
-        });
+        },payload);
     }
   }
 }

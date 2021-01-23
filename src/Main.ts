@@ -92,7 +92,7 @@ class Main extends eui.UILayer {
    */
   protected createGameScene(): void {
     //应用启动器
-    new TS({
+    new App({
       el:this,
       routes:Routes
     })
