@@ -27,6 +27,7 @@ namespace DDI {
     $router: Router;
     constructor(app: App, router: Router) {
       super();
+      console.log(app,router)
       this.$router = router;
       this.$app = app;
     }
