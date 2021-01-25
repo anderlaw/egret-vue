@@ -1,6 +1,6 @@
 class PartOneHand extends DDI.PageComponent implements DDI.PageRequirements {
-  $app: TS;
-  $router: DDI.Router;
+  $app;
+  $router;
   public componentWillInit(): void {
     this.$app.changeBgImage("bg1_png");
     const image = new eui.Image();

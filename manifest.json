@@ -11,20 +11,20 @@
 	"game": [
 		"bin-debug/base/Page.js",
 		"bin-debug/components/new-label.js",
-		"bin-debug/api/SingtonClass.js",
 		"bin-debug/base/App.js",
 		"bin-debug/part-two/resume.js",
 		"bin-debug/components/flower.js",
 		"bin-debug/components/long-tap.js",
 		"bin-debug/api/Config.js",
+		"bin-debug/api/SingtonClass.js",
+		"bin-debug/part-one/partOneHand.js",
 		"bin-debug/components/npc.js",
 		"bin-debug/components/open-close-door.js",
 		"bin-debug/components/repeat.js",
 		"bin-debug/part-one/cake.js",
 		"bin-debug/part-one/guide-pointer.js",
 		"bin-debug/part-one/HRExplain.js",
-		"bin-debug/part-one/partOneHand.js",
-		"bin-debug/App.js",
+		"bin-debug/components/label.js",
 		"bin-debug/api/httpService.js",
 		"bin-debug/api/index.js",
 		"bin-debug/api/simulation.js",
@@ -39,6 +39,6 @@
 		"bin-debug/App-copy.js",
 		"bin-debug/base/Router.js",
 		"bin-debug/api/heartBeat.js",
-		"bin-debug/components/label.js"
+		"bin-debug/App.js"
 	]
 }

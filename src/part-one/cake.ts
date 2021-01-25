@@ -1,6 +1,4 @@
 class PartOneCake extends DDI.PageComponent {
-  $app: TS;
-  router: DDI.Router;
   public tip_label: eui.Label;
   public btn_group: eui.Group;
   componentWillInit() {

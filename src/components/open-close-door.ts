@@ -1,6 +1,6 @@
 class OpenCloseDoor extends DDI.PageComponent implements DDI.PageRequirements {
-  $app: TS;
-  $router: DDI.Router;
+  $app;
+  $router;
 
   // 上半部分
   public topSection: eui.Group;

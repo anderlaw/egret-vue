@@ -1,6 +1,6 @@
 class PartOneHrExplain extends DDI.PageComponent {
-  $app: TS;
-  $router: DDI.Router;
+  $app;
+  $router;
   public content_label: eui.Label;
   componentWillInit() {
     this.skinName = "resource/skins/hr_explain.exml";

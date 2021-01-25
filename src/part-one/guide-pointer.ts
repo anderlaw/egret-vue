@@ -1,14 +1,13 @@
 class GuidePointer extends DDI.PageComponent implements DDI.PageRequirements {
-  $app;
-  $router;
+  public $app;
   public tipLabel: eui.Label;
   public mounted() {
-    console.log("加载了");
+    // console.log("加载了");
     
     this.startAnimation();
   }
   public unmounted() {
-    console.log("解除了");
+    // console.log("解除了");
     this.stage.removeEventListener(
       egret.TouchEvent.TOUCH_TAP,
       this.handleClick,
@@ -16,6 +15,8 @@ class GuidePointer extends DDI.PageComponent implements DDI.PageRequirements {
     );
   }
   public componentWillInit() {
+    console.log(this.$app)
+    console.log(this.$router)
     this.skinName = "resource/skins/GuidePointer.exml";
     this.$app.changeBgImage("bg1_png");
     //居中
