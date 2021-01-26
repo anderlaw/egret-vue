@@ -1,4 +1,4 @@
-namespace DDI {
+namespace Base {
   interface paramType {
     app: App;
     routes: Array<any>; //路由配置

@@ -1,4 +1,4 @@
-namespace DDI {
+namespace Base {
   export interface PageRequirements{
     /**
      * app应用实例
@@ -27,7 +27,6 @@ namespace DDI {
     $router: Router;
     constructor(app: App, router: Router) {
       super();
-      console.log(app,router)
       this.$router = router;
       this.$app = app;
     }
